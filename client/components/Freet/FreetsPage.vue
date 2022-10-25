@@ -53,6 +53,11 @@
           :key="freet.id"
           :freet="freet"
         />
+        <SourceComponent
+          v-for="freet in $store.state.freets"
+          :key="freet.id"
+          :freet="freet"
+        />
       </section>
       <article
         v-else
@@ -68,10 +73,11 @@ import FreetComponent from '@/components/Freet/FreetComponent.vue';
 import CreateFreetForm from '@/components/Freet/CreateFreetForm.vue';
 import GetFreetsForm from '@/components/Freet/GetFreetsForm.vue';
 import LikeComponent from '@/components/Like/LikeComponent.vue';
+import SourceComponent from '@/components/Source/SourceComponent.vue';
 
 export default {
   name: 'FreetPage',
-  components: {FreetComponent, GetFreetsForm, CreateFreetForm, LikeComponent},
+  components: {FreetComponent, GetFreetsForm, CreateFreetForm, LikeComponent, SourceComponent},
   mounted() {
     this.$refs.getFreetsForm.submit();
   }

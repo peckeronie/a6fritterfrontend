@@ -34,7 +34,6 @@
         <button @click="deleteFreet">
           🗑️ Delete
         </button>
-        <!-- <LikeComponent /> -->
       </div>
     </header>
     <textarea
@@ -66,7 +65,6 @@
 </template>
 
 <script>
-// import LikeComponent from '@/components/Like/LikeComponent.vue';
 
 export default {
   name: 'FreetComponent',
