@@ -11,12 +11,12 @@
        <button
         @click="likeFreet"
        >
-        Like
+       ❤️ Like
       </button>
       <button
         @click="unlikeFreet"
        >
-        Unlike
+       🤍 Unlike
       </button>
       </div>
       <div

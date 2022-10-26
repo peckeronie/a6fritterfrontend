@@ -44,9 +44,23 @@
         
         </div>
       </header>
+      <button
+        v-if="!showing"
+        @click="showSources"
+      >
+          Show Sources
+      </button>
+      <button
+          v-if="showing"
+          @click="quitSources"
+      >
+          Unexpand Sources
+      </button>
+    <section v-if="showing">
       <p class="info">
         Sources: {{ this.sources }}
       </p>
+      </section>
       <section class="alerts">
         <article
           v-for="(status, alert, index) in alerts"
@@ -72,6 +86,7 @@
     },
     data() {
       return {
+        showing: false, 
         sources: '',
         newsource: '',
         todelete: '',
@@ -82,6 +97,12 @@
         this.getSources();
     },
     methods: {
+      showSources() {
+        this.showing = true; 
+      },
+      quitSources() {
+        this.showing = false; 
+      }, 
       async getSources() {
          /**
          * Get the sources for a freet.
