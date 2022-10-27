@@ -26,6 +26,9 @@
       >
         Login
       </router-link>
+      <router-link to="/viewingusers">
+        Users
+      </router-link>
     </div>
     <section class="alerts">
       <article

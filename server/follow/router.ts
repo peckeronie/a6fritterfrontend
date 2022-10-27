@@ -7,8 +7,19 @@ import * as followValidator from '../follow/middleware';
 import UserCollection from '../user/collection';
 import FreetCollection from '../freet/collection';
 import * as util from '../freet/util';
+import UserModel from '../user/model';
 
 const router = express.Router();
+
+
+router.get(
+  '/allusers',
+  [],
+  async (req: Request, res: Response) => {
+    const users = await UserModel.find({});
+    res.status(200).json(users);
+  }
+);
 
 /**
  * Get followers for a user
