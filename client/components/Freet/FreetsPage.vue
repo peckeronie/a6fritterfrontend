@@ -43,7 +43,21 @@
       <section
         v-if="$store.state.freets.length"
       >
+      <div v-for="freet in $store.state.freets">
         <FreetComponent
+          :key="freet.id"
+          :freet="freet"
+        />
+        <LikeComponent
+          :key="freet.id"
+          :freet="freet"
+        />
+        <SourceComponent
+          :key="freet.id"
+          :freet="freet"
+        />
+      </div>
+        <!-- <FreetComponent
           v-for="freet in $store.state.freets"
           :key="freet.id"
           :freet="freet"
@@ -57,7 +71,7 @@
           v-for="freet in $store.state.freets"
           :key="freet.id"
           :freet="freet"
-        />
+        /> -->
       </section>
       <article
         v-else

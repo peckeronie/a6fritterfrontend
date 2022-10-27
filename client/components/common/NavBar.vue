@@ -29,6 +29,9 @@
       <router-link to="/viewingusers">
         Users
       </router-link>
+      <router-link to="/myfeed">
+        Your Feed
+      </router-link>
     </div>
     <section class="alerts">
       <article

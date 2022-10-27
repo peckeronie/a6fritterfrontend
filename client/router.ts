@@ -5,6 +5,7 @@ import AccountPage from './components/Account/AccountPage.vue';
 import LoginPage from './components/Login/LoginPage.vue';
 import NotFound from './NotFound.vue';
 import UsersPage from './components/Follow/UsersPage.vue';
+import PersonalFeedPage from './components/Follow/PersonalFeedPage.vue';
 
 Vue.use(VueRouter);
 
@@ -14,6 +15,7 @@ const routes = [
   {path: '/login', name: 'Login', component: LoginPage},
   {path: '*', name: 'Not Found', component: NotFound},
   {path: '/viewingusers', name: 'Users', component: UsersPage},
+  {path: '/myfeed', name: 'Your Feed', component: PersonalFeedPage}
 ];
 
 const router = new VueRouter({routes});

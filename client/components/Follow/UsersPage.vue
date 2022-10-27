@@ -30,7 +30,7 @@
   export default {
     name: 'UsersPage',
     components: {FollowComponent},
-    mounted() {
+    created() {
         this.$store.commit('refreshUsers'); 
     }
   };
