@@ -48,14 +48,14 @@
           :key="freet.id"
           :freet="freet"
         />
-        <LikeComponent
+        <!-- <LikeComponent
           :key="freet.id"
           :freet="freet"
         />
         <SourceComponent
           :key="freet.id"
           :freet="freet"
-        />
+        /> -->
       </div>
         <!-- <FreetComponent
           v-for="freet in $store.state.freets"

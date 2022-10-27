@@ -52,6 +52,14 @@
       Posted at {{ freet.dateModified }}
       <i v-if="freet.edited">(edited)</i>
     </p>
+    <LikeComponent
+          :key="freet.id"
+          :freet="freet"
+        />
+      <SourceComponent
+        :key="freet.id"
+        :freet="freet"
+      />
     <section class="alerts">
       <article
         v-for="(status, alert, index) in alerts"
@@ -65,9 +73,12 @@
 </template>
 
 <script>
+import LikeComponent from '@/components/Like/LikeComponent.vue';
+import SourceComponent from '@/components/Source/SourceComponent.vue';
 
 export default {
   name: 'FreetComponent',
+  components: {LikeComponent, SourceComponent},
   props: {
     // Data from the stored freet
     freet: {

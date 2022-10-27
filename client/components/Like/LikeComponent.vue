@@ -110,6 +110,21 @@ export default {
       alerts: {} // Displays success/error messages encountered during freet modification
     };
   },
+  watch: {
+    freet : function(value) {
+        // Whenever the prop freet changes, then get the likes again
+        this.getLikes();
+        this.getLikers();
+      }
+    },
+  // watch: {
+  //   '$store.state.list': {
+  //     handler() {
+  //       this.getTodo();
+  //     },
+  //     immediate: true
+  //   } 
+  // },
   created() {
       this.getLikes();
       this.getLikers();

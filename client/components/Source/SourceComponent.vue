@@ -93,6 +93,12 @@
         alerts: {} // Displays success/error messages encountered during freet modification
       };
     },
+    watch: {
+      freet : function(value) {
+          // Whenever the prop freet changes, then get its sources again
+          this.getSources();
+        }
+    },
     created() {
         this.getSources();
     },
