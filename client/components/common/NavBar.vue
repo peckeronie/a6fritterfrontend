@@ -11,25 +11,25 @@
       </h1>
     </div>
     <div class="right">
-      <router-link to="/">
+      <router-link to="/" class="routerlink">
         Home
       </router-link>
       <router-link
         v-if="$store.state.username"
-        to="/account"
+        to="/account" class="routerlink"
       >
         Account
       </router-link>
       <router-link
         v-else
-        to="/login"
+        to="/login" class="routerlink"
       >
         Login
       </router-link>
-      <router-link to="/viewingusers">
-        Users
+      <router-link to="/viewingusers" class="routerlink">
+        All Users
       </router-link>
-      <router-link to="/myfeed">
+      <router-link to="/myfeed" class="routerlink">
         Your Feed
       </router-link>
     </div>
@@ -48,11 +48,16 @@
 <style scoped>
 nav {
     padding: 1vw 2vw;
-    background-color: #ccc;
+    background-color: #06bee1;
+    /* background-color: #ccc; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+}
+
+.routerlink {
+  color: #fff;
 }
 
 .title {

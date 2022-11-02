@@ -89,7 +89,7 @@
         try {
           const r = await fetch(url);
           const res = await r.json();
-          this.followers = res['response']; //['data']; 
+          this.followers = res['response'] ? res['response'] : res['message']; //['data']; 
           // const res = await r.json();
           // if (!r.ok) {
           //   throw new Error(res.error);
@@ -107,7 +107,7 @@
         try {
           const r = await fetch(url);
           const res = await r.json();
-          this.following = res['response']; //['data']; 
+          this.following = res['response'] ? res['response'] : res['message']; //['data']; 
           // const res = await r.json();
           // if (!r.ok) {
           //   throw new Error(res.error);
@@ -234,5 +234,10 @@
       padding: 20px;
       position: relative;
   }
+
+button {
+  color: #fff;
+  background-color: #1768ac;
+}
   </style>
   

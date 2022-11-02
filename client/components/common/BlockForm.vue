@@ -126,6 +126,11 @@ form {
   position: relative;
 }
 
+button {
+  color: #fff;
+  background-color: #1768ac;
+}
+
 article > div {
   display: flex;
   flex-direction: column;

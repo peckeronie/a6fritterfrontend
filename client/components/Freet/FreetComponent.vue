@@ -184,4 +184,10 @@ export default {
     padding: 20px;
     position: relative;
 }
+
+button {
+  color: #fff;
+  background-color: #1768ac;
+}
+
 </style>

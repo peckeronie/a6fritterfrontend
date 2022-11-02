@@ -58,7 +58,10 @@
       </button>
     <section v-if="showing">
       <p class="info">
-        Sources: {{ this.sources }}
+        <!-- Sources: {{ this.sources }} -->
+        <li v-for="item in this.sources">
+          {{ item }}
+        </li>
       </p>
       </section>
       <section class="alerts">
@@ -87,7 +90,8 @@
     data() {
       return {
         showing: false, 
-        sources: '',
+        sources: [],
+        // sources: '',
         newsource: '',
         todelete: '',
         alerts: {} // Displays success/error messages encountered during freet modification
@@ -116,7 +120,8 @@
         const url = `/api/source/sources/${this.freet._id}`;
         try {
           const r = await fetch(url);
-          const res = await r.text();
+          const res = await r.json();
+          // const res = await r.text();
           this.sources = res; //['data']; 
           // const res = await r.json();
           // if (!r.ok) {
@@ -185,8 +190,19 @@
   
   <style scoped>
   .sources {
-      border: 1px solid #111;
+      border: 1px solid #06bee1;
+      /* border: 1px solid #111; */
       padding: 20px;
       position: relative;
   }
+
+button {
+  color: #fff;
+  background-color: #1768ac;
+}
+
+  h3 {
+    color: #06bee1;
+  }
+
   </style>

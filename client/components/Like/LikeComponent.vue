@@ -55,7 +55,12 @@
         Unexpand Likers
     </button>
     <section v-if="showing">
-    <p>{{ this.likers }}</p>
+    <p class="info">
+      <li v-for="item in this.likers">
+          {{ item }}
+      </li>
+      <!-- {{ this.likers }} -->
+    </p>
     </section>
     </div>
     <section class="alerts">
@@ -105,7 +110,8 @@ export default {
   data() {
     return {
       showing: false, // Whether or not to see the list of users who liked the freet
-      likers: '',
+      // likers: '',
+      likers: [],
       likes: '',
       alerts: {} // Displays success/error messages encountered during freet modification
     };
@@ -156,7 +162,8 @@ export default {
       try {
         const r = await fetch(url);
         const res = await r.json();
-        this.likers = res['names'] ? res['names'] : res['message']; 
+        this.likers = res['names'] ? res['names'] : [res['message']]; 
+        // this.likers = res['names'] ? res['names'] : res['message']; 
       } catch (e) {
         this.$set(this.alerts, e, 'error');
         setTimeout(() => this.$delete(this.alerts, e), 3000);
@@ -282,8 +289,18 @@ export default {
 
 <style scoped>
 .like {
-    border: 1px solid #111;
+    border: 1px solid #06bee1;
+    /* border: 1px solid #111; */
     padding: 20px;
     position: relative;
+}
+
+button {
+  color: #fff;
+  background-color: #1768ac;
+}
+
+h3 {
+  color: #06bee1;
 }
 </style>
