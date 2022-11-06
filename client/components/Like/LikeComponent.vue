@@ -191,9 +191,11 @@ export default {
         }
         this.getLikes();
         this.getLikers();
-        this.$store.commit('alert', {
-            message: 'Successfully hid likes!', status: 'success'
-          });
+        this.$set(this.alerts, 'Successfully hid likes!', 'success');
+        setTimeout(() => this.$delete(this.alerts, 'Successfully hid likes!'), 3000);
+        // this.$store.commit('alert', {
+        //     message: 'Successfully hid likes!', status: 'success'
+        //   });
       } catch (e) {
         this.$set(this.alerts, e, 'error');
         setTimeout(() => this.$delete(this.alerts, e), 3000);
@@ -215,9 +217,11 @@ export default {
         }
         this.getLikes();
         this.getLikers();
-        this.$store.commit('alert', {
-            message: 'Successfully unhid likes!', status: 'success'
-          });
+        this.$set(this.alerts, 'Successfully unhid likes!', 'success');
+        setTimeout(() => this.$delete(this.alerts, 'Successfully unhid likes!'), 3000);
+        // this.$store.commit('alert', {
+        //     message: 'Successfully unhid likes!', status: 'success'
+        //   });
       } catch (e) {
         this.$set(this.alerts, e, 'error');
         setTimeout(() => this.$delete(this.alerts, e), 3000);
@@ -230,9 +234,11 @@ export default {
       const params = {
         method: 'DELETE',
         callback: () => {
-          this.$store.commit('alert', {
-            message: 'Successfully unliked freet!', status: 'success'
-          });
+          this.$set(this.alerts, 'Successfully unliked freet!', 'success');
+          setTimeout(() => this.$delete(this.alerts, 'Successfully unliked freet!'), 3000);
+          // this.$store.commit('alert', {
+          //   message: 'Successfully unliked freet!', status: 'success'
+          // });
         }
       };
       this.request(params);
@@ -245,9 +251,11 @@ export default {
         method: 'PUT',
         // message: 'Successfully liked freet!',
         callback: () => {
-          this.$store.commit('alert', {
-            message: 'Successfully liked freet!', status: 'success'
-          });
+          this.$set(this.alerts, 'Successfully liked freet!', 'success');
+          setTimeout(() => this.$delete(this.alerts, 'Successfully liked freet!'), 3000);
+          // this.$store.commit('alert', {
+          //   message: 'Successfully liked freet!', status: 'success'
+          // });
         }
       };
       this.request(params);

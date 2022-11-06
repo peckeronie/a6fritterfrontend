@@ -136,9 +136,12 @@
           }
           this.getFollowers();
           this.getFollowing();
-          this.$store.commit('alert', {
-              message: `Successfully unfollowed ${this.user.username}!`, status: 'success'
-            });
+          const message = `Successfully unfollowed ${this.user.username}!`;
+          this.$set(this.alerts, message, 'success');
+          setTimeout(() => this.$delete(this.alerts, message), 3000);
+          // this.$store.commit('alert', {
+          //     message: `Successfully unfollowed ${this.user.username}!`, status: 'success'
+          //   });
         } catch (e) {
           this.$set(this.alerts, e, 'error');
           setTimeout(() => this.$delete(this.alerts, e), 3000);
@@ -163,9 +166,12 @@
           }
           this.getFollowers();
           this.getFollowing();
-          this.$store.commit('alert', {
-              message: `Successfully followed ${this.user.username}!`, status: 'success'
-            });
+          const message = `Successfully followed ${this.user.username}!`;
+          this.$set(this.alerts, message, 'success');
+          setTimeout(() => this.$delete(this.alerts, message), 3000);
+          // this.$store.commit('alert', {
+          //     message: `Successfully followed ${this.user.username}!`, status: 'success'
+          //   });
         } catch (e) {
           this.$set(this.alerts, e, 'error');
           setTimeout(() => this.$delete(this.alerts, e), 3000);
@@ -189,9 +195,12 @@
             throw new Error(res.error);
           }
           this.getFollowers();
-          this.$store.commit('alert', {
-              message: `Successfully hid your followers!`, status: 'success'
-            });
+          const message = `Successfully hid your followers!`;
+          this.$set(this.alerts, message, 'success');
+          setTimeout(() => this.$delete(this.alerts, message), 3000);
+          // this.$store.commit('alert', {
+          //     message: `Successfully hid your followers!`, status: 'success'
+          //   });
         } catch (e) {
           this.$set(this.alerts, e, 'error');
           setTimeout(() => this.$delete(this.alerts, e), 3000);
@@ -215,9 +224,12 @@
             throw new Error(res.error);
           }
           this.getFollowers();
-          this.$store.commit('alert', {
-              message: `Successfully unhid your followers!`, status: 'success'
-            });
+          const message = `Successfully unhid your followers!`;
+          this.$set(this.alerts, message, 'success');
+          setTimeout(() => this.$delete(this.alerts, message), 3000);
+          // this.$store.commit('alert', {
+          //     message: `Successfully unhid your followers!`, status: 'success'
+          //   });
         } catch (e) {
           this.$set(this.alerts, e, 'error');
           setTimeout(() => this.$delete(this.alerts, e), 3000);

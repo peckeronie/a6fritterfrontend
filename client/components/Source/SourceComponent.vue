@@ -113,6 +113,16 @@
       quitSources() {
         this.showing = false; 
       }, 
+      isValidUrl(str) {
+        let url;
+        try {
+          url = new URL(str);
+        } catch (_) {
+          return false;
+        }
+        return true;
+      },
+
       async getSources() {
          /**
          * Get the sources for a freet.
@@ -136,6 +146,13 @@
          /**
          * Add a source to a freet.
          */
+         if (!this.isValidUrl(this.newsource)) {
+          const error = 'Error: Entered source should be a valid website url.';
+          this.$set(this.alerts, error, 'error'); // Set an alert to be the error text, timeout of 3000 ms
+          setTimeout(() => this.$delete(this.alerts, error), 3000);
+          return;
+         }
+         
          const requestOptions = {
               method: 'POST',
               headers: {'Content-Type': 'application/json'},
@@ -150,9 +167,11 @@
             throw new Error(res.error);
           }
           this.getSources();
-          this.$store.commit('alert', {
-              message: 'Successfully added your source!', status: 'success'
-            });
+          this.$set(this.alerts, 'Successfully added your source!', 'success');
+          setTimeout(() => this.$delete(this.alerts, 'Successfully added your source!'), 3000);
+          // this.$store.commit('alert', {
+          //     message: 'Successfully added your source!', status: 'success'
+          //   });
         } catch (e) {
           this.$set(this.alerts, e, 'error');
           setTimeout(() => this.$delete(this.alerts, e), 3000);
@@ -162,6 +181,12 @@
          /**
          * Remove a source from a freet. 
          */
+         if (!this.todelete.length) {
+          const error = 'Error: Entered source should not be empty.';
+          this.$set(this.alerts, error, 'error'); // Set an alert to be the error text, timeout of 3000 ms
+          setTimeout(() => this.$delete(this.alerts, error), 3000);
+          return;
+         }
          const requestOptions = {
               method: 'PUT',
               headers: {'Content-Type': 'application/json'},
@@ -176,9 +201,11 @@
             throw new Error(res.error);
           }
           this.getSources();
-          this.$store.commit('alert', {
-              message: 'Successfully removed a source!', status: 'success'
-            });
+          this.$set(this.alerts, 'Successfully removed a source!', 'success');
+          setTimeout(() => this.$delete(this.alerts, 'Successfully removed a source!'), 3000);
+          // this.$store.commit('alert', {
+          //     message: 'Successfully removed a source!', status: 'success'
+          //   });
         } catch (e) {
           this.$set(this.alerts, e, 'error');
           setTimeout(() => this.$delete(this.alerts, e), 3000);
